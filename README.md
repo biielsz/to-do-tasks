@@ -1,6 +1,5 @@
 ## 📌 About the project:
 
-- 📝 Sistema de anotação de tarefas
 - 📝 Task annotation system
 - 📋 Task management
 - 💾 Data saving using JSON
