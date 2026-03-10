@@ -27,8 +27,8 @@ export async function identifyName() {
 
         await writeFile(filePath, JSON.stringify({ name }, null, 2), "utf-8")
 
-        return `Seja bem-vindo, ${name}!`
+        return `${chalk.hex("#ffdc43")("👋 Seja bem-vindo(a),")} ${chalk.blue(name)}${chalk.hex("#9ef2fa")("!")}`
     } 
     
-    return `Seja bem-vindo, ${parsed.name}!`
+    return `${chalk.hex("#ffdc43")("👋 Seja bem-vindo(a),")} ${chalk.blue(parsed.name)}${chalk.hex("#9ef2fa")("!")}`
 }

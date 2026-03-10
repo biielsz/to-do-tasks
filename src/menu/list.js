@@ -6,13 +6,13 @@ import { updateTaskMenu } from "./update.js";
 
 export async function listTasksMenu() {
     if (taskManager.tasks.size < 1) {
-        log.warn("Você não possui tarefas para serem listadas!")
-        setTimeout(() => mainMenu(), 1500)
+        log.warn(chalk.yellow("⚠️  Você não possui tarefas para serem listadas!"))
+        setTimeout(() => mainMenu(), 1000)
         return;
     }
 
     const selected = await select({
-        message: chalk.hex("#9ef2fa")("Selecione uma tarefa:"),
+        message: chalk.hex("#9ef2fa")("🔎 Selecione uma tarefa:"),
         options: [
             ...taskManager.toArray().map(({ name, status }) => ({
                 label: `${taskManager.colorStatus(status)} ${chalk.white.underline(name)}`,
@@ -27,4 +27,5 @@ export async function listTasksMenu() {
     }  
 
     updateTaskMenu(selected)
+    return;
 }

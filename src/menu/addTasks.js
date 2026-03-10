@@ -8,11 +8,11 @@ export async function createTaskMenu() {
 
     do {
         name = await text({
-            message: "Escreva o nome da tarefa:"
+            message: chalk.hex("#9ef2fa")("✏️  Escreva o nome da tarefa:")
         })
 
         if(taskManager.tasks.has(name)){
-            log.error("A tarefa digitada já existe na lista.")
+            log.error(chalk.red("❌ A tarefa digitada já existe na lista."))
         }
         
     } 
@@ -20,7 +20,7 @@ export async function createTaskMenu() {
     
     if(isCancel(name)){
         cancel("❌ Operação cancelada.")
-        setTimeout(() => mainMenu(), 1500);
+        setTimeout(() => mainMenu(), 1000);
         return;
     }
 
@@ -31,6 +31,7 @@ export async function createTaskMenu() {
     }
     taskManager.create(task);
 
-    log.success("✅ Tarefa criada com sucesso!")
-    setTimeout(() => mainMenu(), 1500);
+    log.success(chalk.green("✅ Tarefa criada com sucesso!"))
+    setTimeout(() => mainMenu(), 1000);
+    return;
 }

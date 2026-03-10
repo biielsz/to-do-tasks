@@ -1,6 +1,7 @@
 import { isCancel, outro, select } from "@clack/prompts";
 import chalk from "chalk";
 import { createTaskMenu } from "./addTasks.js";
+import { taskManager } from "../manager/tasks.js";
 import { listTasksMenu } from "./list.js";
 
 export async function mainMenu(){
@@ -12,6 +13,7 @@ export async function mainMenu(){
             { value: "leave", label: chalk.hex("#cffcfc")("👋 Sair") }
         ]
     })
+    
     if(isCancel(menu)) return;
 
     switch(menu){
@@ -25,7 +27,7 @@ export async function mainMenu(){
         }
         default:{
             outro(chalk(`◾ ${chalk.hex("#303030")("Fim do programa!")}`))
-            return
+            return;
         }
     }
 }
